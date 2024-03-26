@@ -1,0 +1,46 @@
+<link rel="stylesheet" href="/static/css/userUpdateFrom.css">
+
+{{#if successUpdate}}
+<div class="alert alert-success alert-dismissible fade show" role="alert">
+    <strong>{{successUpdate}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+
+{{#if failUpdate}}
+<div class="alert alert-danger alert-dismissible fade show" role="alert">
+    <strong>{{failUpdate}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+
+
+<div class="updateForm" id="updateForm">
+
+    <form action="/updateForm/{{data.id}}" method="POST" enctype="multipart/form-data">
+        <h2>Update Your Details</h2>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Full Name</label>
+            <input type="text" name="fullname" class="form-control" value="{{data.full_name}}">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Email address</label>
+            <input type="email" name="email" class="form-control" value="{{data.email}}">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Phone Number</label>
+            <input type="phone" name="phone" class="form-control" value="{{data.phone}}">
+        </div>
+        <div class="mb-3">
+            <label for="exampleInputEmail1" class="form-label">Address</label>
+            <input type="location" name="city" class="form-control" value="{{data.city}}">
+        </div>
+       
+        <button type="submit" class="btn btnUpdate">Update Now</button>
+
+
+    </form>
+
+</div>
+
+</div>

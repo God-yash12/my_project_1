@@ -1,0 +1,289 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  padding: 0px;
+  margin: 0px;
+  box-sizing: border-box;
+}
+
+:root {
+  --linear-grad: linear-gradient(to right, #141e30, #243b55);
+  --grad-clr1: #141e30;
+  --grad-clr2: #243b55;
+}
+
+body {
+  height: 100vh;
+  background: #f6f5f7;
+  display: grid;
+  place-content: center;
+  font-family: "Poppins", sans-serif;
+}
+
+
+
+.container{
+  position: relative;
+  width: 850px;
+  height: 600px;
+  background-color: white;
+  box-shadow: 25px 30px 55px #5557;
+  border-radius: 13px;
+  overflow-y: auto;
+}
+
+.form-container{
+  position: absolute;
+  width: 60%;
+  height: 100%;
+  padding: 0px 40px;
+  transition: all 0.6s ease-in-out;
+}
+.sign-up-container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  opacity: 0;
+  z-index: 1;
+}
+
+.sign-in-container{
+  z-index: 2;
+}
+.form-container h1{
+  text-align: center;
+  margin: 30px 0;
+}
+
+form{
+  height: 100%;
+  padding: 0px 50px;
+
+}
+
+h1{
+  color: var(--grad-clr1);
+}
+
+span{
+  font-size: 12px;
+}
+
+.infield{
+  position: relative;
+  margin: 8px 0px;
+  width: 100%;
+}
+.infield select{
+  width: 100%;
+  height: 40px;
+  border: none;
+  outline: none;
+  background-color: #f3f3f3;
+}
+input{
+  width: 100%;
+  height: 45px;
+  padding: 13px 15px;
+  background-color: #f3f3f3;
+  border: none;
+  outline: none;
+
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+label{
+  position: absolute;
+  left: 50%;
+  top: 100%;
+  transform: translateX(-50%);
+  width: 100%;
+  height: 2px;
+  background: var(--linear-grad);
+  transition: 0.3s;
+}
+
+input:focus ~ label{
+  width: 100%;
+}
+a{
+  text-decoration: none;
+  color: #141e30;
+}
+.reference span{
+  margin-left: 30px;
+}
+a:hover{
+  text-decoration: underline;
+  color: #141e30;
+}
+.icon {
+  position: absolute;
+  right: 5px;
+  font-size: 1.2em;
+  color: #0a4875;
+  line-height: 50px;
+  cursor: pointer;
+}
+
+
+button{
+  border-radius: 20px;
+  border: 1px solid var(--grad-clr1);
+  background: var(--grad-clr2);
+  color: white;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 12px 45px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.form-container .btnSign{
+  margin-left: 60px;
+  
+}
+.form-container button{
+  margin-top: 17px;
+  transition: 80ms ease-in;
+}
+
+.form-container button:hover{
+   background: #FFF;
+   color: var(--grad-clr1);
+}
+
+.overlay-container{
+  position: absolute;
+  top: 0;
+  left: 60%;
+  width: 40%;
+  height: 100%;
+  overflow: hidden;
+  transition: transform 0.6 ease-in-out;
+  z-index: 9;
+}
+
+
+#overlayBtn{
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  top: 367px;
+  transform: translateX(-50%);
+  width: 143.67px;
+  height: 40px;
+  border: 1px solid #FFF;
+  background: transparent;
+  border-radius: 20px;
+}
+
+.overlay{
+  position: relative;
+  background: var(--linear-grad);
+  color: #FFF;
+  left: -150%;
+  height: 100%;
+  width: 250%;
+  transition: transform 0.6s ease-in-out;
+}
+
+.overlay-panel{
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 0px 20px;
+  text-align: center;
+  height: 100%;
+  width: 340px;
+  transition: 0.6s ease-in-out;
+}
+
+.overlay-left{
+  right: 60%;
+  transform: translateX(-12%);
+}
+
+.overlay-right{
+  right: 0;
+  transform: translateX(0%);
+}
+
+.overlay-panel h2{
+  color: #FFF;
+}
+
+.overlay P{
+  font-size: 14px;
+  font-weight: 300;
+  line-height: 20px;
+  letter-spacing: 0.5px;
+  margin: 25px 0px 35px;
+  
+}
+
+.overlay-panel button{
+  border: none;
+  background-color: transparent;
+} 
+
+.right-panel-active .overlay-container{
+  transform: translateX(-150%);
+
+}
+.right-panel-active .overlay{
+  transform: translateX(50%);
+}
+
+.right-panel-active .overlay-left{
+  transform: translateX(25%);
+}
+.right-panel-active .overlay-right{
+  transform: translateX(35%);
+}
+
+.right-panel-active .sign-in-container{
+  transform: translateX(30%);
+  opacity: 0;
+}
+.right-panel-active .sign-up-container{
+  transform: translateX(66.7%);
+  opacity: 1;
+  z-index: 5;
+  animation: show 0.6s;
+}
+
+@keyframes show{
+  0%, 50%{
+    opacity: 0;
+    z-index: 1;
+  }
+  50.1%, 100%{
+    opacity: 1;
+    z-index: 5;
+  }
+}
+
+.btnScaled{
+  animation:  scaleBtn 0.6s;
+}
+
+@keyframes scaleBtn{
+  0%{
+    width: 143.67px;
+  }
+  50%{
+    width: 250px;
+  }
+  100%{
+    width: 143.67px;
+  }
+} 

@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- font awesome icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
+        integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <!-- css stylesheet -->
+    <link rel="stylesheet" href="/static/css/signup.css">
+</head>
+
+<body>
+
+    <div class="container" id="container">
+        {{!-- <div class="form-container sign-up-container">
+            <form action="/company" method="post">
+                <h1>Create Account</h1>
+                <div class="infield">
+                    <input type="text" placeholder="Company Name" required />
+                    <label></label>
+                </div>
+                <div class="infield">
+                    <input type="email" placeholder="Company Email" name="email" required />
+                    <label></label>
+                </div>
+                <div class="infield">
+                    <input type="text" placeholder="Address" name="address" required />
+                    <label></label>
+                </div>
+                <div class="infield">
+                    <input type="number" placeholder="Contact" name="tel" />
+                    <label></label>
+                </div>
+                <div class="infield">
+                    <input type="password" id="password" placeholder="Password" required /><span class="icon"><i
+                            id="eye" class="fa-solid fa-eye" aria-hidden="true" onclick="toggleEye()"></i></span>
+                    <label></label>
+                </div>
+                <div class="infield">
+                    <input type="text" placeholder="Description" name="description" />
+                    <label></label>
+                </div>
+                <button class="btnSign">Sign Up</button>
+                <div class="reference">
+                    <span>Already have an account <a href="/loginPage">Login Now</a></span>
+                </div>
+            </form>
+        </div> --}}
+
+        <div class="form-container sign-up-container">
+            <p> If you want to register your company you need to contact with our admin with certain information on this
+                email <a href="https://mail.google.com/mail/u/0/?tab=rm&ogbl#inbox?compose=new">gunyash665@gmail.com</a>
+            </p>
+            <ul>
+                <li>Company Name</li>
+                <li>Email</li>
+                <li>Contact Person and Contact number</li>
+                <li>Company regester number</li>
+                <li>description</li>
+                <li>Address</li>
+            </ul>
+            <p>after you provide these infromation admin will send you mail to login on this system.</p>
+
+
+        </div>
+
+
+
+
+        <div class="form-container sign-in-container">
+            <form action="/signup" method="POST" enctype="multipart/form-data">
+                <h1>Sign in</h1>
+                <div class="infield">
+                    <input type="text" name="fullname" placeholder="Full Name" />
+                    <label></label>
+                </div>
+                {{#if error}}
+                {{#each error}}
+                <div>
+                    <strong>
+                        {{this.fullname.msg}}
+                    </strong>
+                </div>
+                {{/each}}
+                {{/if}}
+                <div class="infield">
+                    <input type="email" name="email" placeholder="Email"/>
+                    <label></label>
+                </div>
+                {{#if error}}
+                {{#each error}}
+                <div>
+                    <strong>
+                        {{this.email.msg}}
+                    </strong>
+                </div>
+                {{/each}}
+                {{/if}}
+                <div class="infield">
+                    <input type="number" name="phone" placeholder="Phone Number" />
+                    <label></label>
+                </div>
+                {{#if error}}
+                {{#each error}}
+                <div>
+                    <strong>
+                        {{this.phone.msg}}
+                    </strong>
+                </div>
+                {{/each}}
+                {{/if}}
+                <div class="infield">
+                    <input type="text" placeholder="Address" name="city" />
+                    <label></label>
+                </div>
+                {{#if error}}
+                {{#each error}}
+                <div>
+                    <strong>
+                        {{this.city.msg}}
+                    </strong>
+                </div>
+                {{/each}}
+                {{/if}}
+
+                <div class="infield">
+                    <input type="password" name="password" id="passwordField" placeholder="Password" /><span
+                        class="icon"><i id="eye" class="fa-solid fa-eye" aria-hidden="true"
+                            onclick="togglepPassword()"></i></span>
+                    <label></label>
+                </div>
+                {{#if error}}
+                {{#each error}}
+                <div>
+                    <strong>
+                        {{this.password.msg}}
+                    </strong>
+                </div>
+                {{/each}}
+                {{/if}}
+                <div class="infield">
+                    <select name="gender" id="gender"> Gender
+                        <option hidden>Select Gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                        <option value="other">Others</option>
+                    </select>
+                </div>
+                {{#if error}}
+                {{#each error}}
+                <div>
+                    <strong>
+                        {{this.gender.msg}}
+                    </strong>
+                </div>
+                {{/each}}
+                {{/if}}
+
+                 <div class="infield">
+                    <label></label>
+                    <input type="file" name="image"/>
+                </div>
+
+                <button class="btnSign">Sign In</button>
+                <div class="reference">
+                    <span>Already have an account <a href="/login">Login Now</a></span>
+                </div>
+
+            </form>
+        </div>
+        <div class="overlay-container" id="overlayCon">
+            <div class="overlay">
+                <div class="overlay-panel overlay-left">
+                    <h2>Searching For Job?</h2>
+                    <p>If you are Seeking for job that aimed you than you are in right palce, register now and make your
+                        dream come true</p>
+                    <button>Register Now</button>
+                </div>
+                <div class="overlay-panel overlay-right">
+                    <h3>Register as Company</h2>
+                        <p>If you are searching for employee than register your company here and post your vacancies</p>
+                        <button>Register Now</button>
+                </div>
+            </div>
+            <button id="overlayBtn"></button>
+        </div>
+    </div>
+
+    <script src="/static/scripts/signup.js"></script>
+
+</body>
+
+</html>

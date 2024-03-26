@@ -1,0 +1,46 @@
+
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+@import url('href="https://fonts.googleapis.com/css?family=Tangerine">');
+
+body{
+    font-family: "poppins";
+    box-sizing: border-box;
+}
+
+.description-section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 50px;
+}
+
+.description {
+    width: 700px; 
+    height: 350px;
+    margin-left: 70px;
+    background-color: antiquewhite;
+    box-shadow: 10px 10px 10px gray;
+}
+
+.imageSetion {
+    width: 50%; 
+}
+
+.imageSetion img {
+    width: 100%;
+    height: auto;
+}
+
+.description h1 {
+    padding-top: 20px;
+    text-align: center;
+    font-size: 30px;
+    text-decoration: underline solid red;
+    color: #333;
+}
+
+.description p {
+    padding: 20px;
+    font-size: 16px;
+    color: #666;
+}

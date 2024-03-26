@@ -1,0 +1,51 @@
+
+
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/css/admin.css">
+  
+
+<div id="companyForm" class="companyFormContainer">
+    <form action="/backend/superAdmin" method="POST">
+        
+        <h1>Company Register</h1>
+        <div class="form-floating mb-3">
+            <input type="text" name="company_name" class="form-control" id="floatingInput" placeholder="Company Name">
+            <label for="floatingInput">Company Name</label>
+        </div>
+
+        <div class="form-floating mb-3">
+            <input type="email" name="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+            <label for="floatingInput">Email address</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="number" name="phone" class="form-control" id="floatingInput" placeholder="Enter your number">
+            <label for="floatingInput">Contact Number</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" name="pan_number" class="form-control" id="floatingInput" placeholder="PAN Number">
+            <label for="floatingInput">Company Register Number</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" name="description" class="form-control" id="floatingInput" placeholder="Description">
+            <label for="floatingInput">Description</label>
+        </div>
+        <div class="form-floating mb-3">
+            <input type="text" name="location" class="form-control" id="floatingInput" placeholder="Location">
+            <label for="floatingInput">Location</label>
+        </div>
+
+        <div class="form-floating">
+            <input type="password" name="password" class="form-control" id="floatingPassword" placeholder="Password">
+            <label for="floatingPassword">Password</label>
+        </div>
+        <br>
+        <button class="btn btn-primary" type="submit">Submit</button>
+    </form>
+</div>
+
+

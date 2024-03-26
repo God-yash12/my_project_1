@@ -1,0 +1,127 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url('href="https://fonts.googleapis.com/css?family=Tangerine">'); 
+
+
+body{
+  margin-top: 50px;
+}
+
+.homeContainer {
+  height: 90%;
+  width: 100%;
+  position: relative;
+  margin-top: 50px;
+}
+
+.topSection {
+  display: flex;
+  justify-content: space-between;
+  /* background-color: rgba(198, 179, 179, 0.889); */
+  background-image: url('./images/background.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+
+}
+
+.topSection .sectionLeft .paragraph1 {
+  font-family: "poppins";
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  word-spacing: -1px;
+  font-size: 15px;
+  margin-left: 153px;
+  line-height: 0px;
+}
+.topSection .sectionLeft{
+  margin-top: 200px;
+}
+.topSection .sectionLeft .paragraph2 {
+  font-size: 50px;
+  font-family: "poppins";
+  margin-left: 145px;
+  letter-spacing: 4px;
+  word-spacing: -1px;
+  margin-top: -27px;
+  text-shadow: 4px 5px 5px gray;
+}
+
+.topSection .imageSection1 {
+  position: relative;
+  width: 550px;
+  height: 500px;
+  margin-right: 40px;
+  margin-bottom: 200px;
+
+}
+
+.topSection .imageSection1 img {
+  margin-top: 100px;
+  margin-bottom: 10px;
+  width: 100%;
+  height: 100%;
+  mask-image: linear-gradient(bottom, transparent, #000000);
+  -webkit-mask-image: linear-gradient(to top, transparent, #000000);
+  mask-size: cover;
+  mask-repeat: no-repeat;
+}
+
+.shopBtn button a {
+  text-decoration: none;
+  color: white;
+}
+
+.topSection .btnShop {
+  width: 150px;
+  height: 40px;
+  padding: 6px 9px;
+  background-color: rgba(76, 125, 27, 0.96);
+  margin-left: 150px;
+  text-transform: uppercase;
+  outline: none;
+  border: none;
+  border-radius: 2px;
+  color: white;
+}
+
+.topSection .btnShop:hover {
+  background-color: rgba(135, 203, 66, 0.948);
+  color: black;
+}
+
+
+.search-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 50px;
+  left: 38%;
+  top: 7%;
+  position: absolute;
+  background-color: rgb(102, 86, 86);
+  border-radius: 5px;
+}
+
+.search-container input.search {
+  width: 300px;
+  height: 30px;
+  background-color: #bba0a0;
+}
+
+.search-container input[type="search"] {
+  border: none;
+  outline: none;
+  color: #000000;
+  padding-left: 20px;
+  border-radius: 5px;
+}
+
+.search-container i {
+  padding: 5px;
+  color: #bba0a0;
+  background-color: rgb(54, 58, 176);
+  border-radius: 6px;
+  font-size: 20px;
+  padding-right: 10px;
+}

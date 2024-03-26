@@ -1,0 +1,241 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap");
+@import url('href="https://fonts.googleapis.com/css?family=Tangerine">');
+
+body {
+  font-family: "poppins";
+}
+
+
+.h1AndBars {
+  margin-top: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.h1AndBars h1 {
+  text-align: center;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.h1AndBars span {
+  margin-right: 10px;
+}
+.h1AndBars span i {
+  font-size: 30px;
+  margin-left: 30px;
+}
+
+.openNav {
+  position: absolute;
+  top: 20px;
+  margin: 20px;
+  font-size: 50px;
+}
+
+.sidenav {
+  height: 100%;
+  width: 180px;
+  margin-top: 76px;
+  position: fixed;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  overflow-x: hidden;
+  background-color: #291818e7;
+  padding-top: 60px;
+  transition: 0.5s;
+}
+.sidenav a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 20px;
+  color: #818181;
+  display: block;
+  transition: 0.3s;
+}
+.sidenav a:hover {
+  color: #f1f1f1;
+}
+.sidenav .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 30px;
+  margin-left: 40px;
+  color: white;
+  cursor: pointer;
+}
+
+#main {
+  transition: margin-left 0.5s;
+  padding: 20px;
+}
+
+@media screen and (max-height: 450px) {
+  .sidenav {
+    padding-top: 15px;
+    font-size: 10px;
+  }
+  .sidenav a {
+    font-size: 18px;
+  }
+}
+
+.sidenav button.btn-success {
+  margin-left: 20px;
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 10px;
+}
+
+.mb-3 input {
+  width: 25rem;
+  border-color: rgba(44, 44, 149, 0.758);
+}
+
+.jobContainer h1 {
+  font-family: "Tangerine", serif;
+  font-size: 50px;
+  text-shadow: 4px 5px 5px #aaa;
+  text-align: center;
+  font-style: italic;
+}
+
+.jobContainer {
+  display: none;
+  width: 30rem;
+  height: 35rem;
+  margin-left: 30%;
+  border: 1px solid black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  box-shadow: 4px 5px 5px gray;
+  border-radius: 10px;
+}
+
+.jobContainer .btn-primary {
+  width: 100px;
+  margin-left: 150px;
+  margin-top: 30px;
+}
+
+.icon-close {
+  position: relative;
+  left: 100%;
+  width: 35px;
+  height: 35px;
+  background: #305d7f;
+  font-size: 1.5em;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 4px 5px 5px gray;
+} 
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+
+
+.companyDetails {
+  color: rgb(19, 4, 4);
+  padding: 10px;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.companyDetails h2 {
+  margin-top: 30px;
+  text-align: center;
+  line-height: 1;
+}
+
+.companyCard button a {
+  text-decoration: none;
+  color: whitesmoke;
+}
+
+.companyFormContainer {
+  display: none;
+  margin-top: 20px;
+  margin-bottom: 70px;
+  position: relative;
+}
+
+.updateDetails {
+  margin-bottom: 10px;
+}
+
+
+.companyCard {
+  position: absolute;
+  display: none;
+  width: 23rem;
+  height: auto; 
+  background-color: burlywood;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 5px 10px 10px gray;
+  margin-bottom: 150px;
+  top: 50px;
+  right: 50px;
+}
+
+
+.companyCard .icon-close {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: -20px;
+  right: 10px;
+  width: 40px;
+  height: 40px;
+  font-size: 1.5em;
+  color: white;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 1;
+  box-shadow: 5px 8px 8px gray;
+}
+
+
+.logout {
+  position: absolute; 
+  top: 250px;
+  left: 20px;
+  
+}
+
+.logout button a{
+  text-decoration: none;
+  color: white;
+}
+
+.logout button{
+  padding: 10px 15px;
+  color: whitesmoke;
+  background-color: rgba(59, 11, 11, 0.945);
+  border: none;
+  border-radius: 5px;
+}
+
+
+.logout button:hover,
+.logout button a:hover{
+  background-color: rgba(104, 176, 27, 0.741);
+  color: black;
+}

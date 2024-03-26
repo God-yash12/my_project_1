@@ -1,0 +1,52 @@
+
+
+
+
+<style>
+   table, th, td {
+  border: 1px solid;
+  margin: 100px;
+}
+th, td{
+    padding: 10px;
+}
+h1{
+    text-align: center;
+}
+</style>
+
+
+<br>
+<h1>User Data</h1>
+
+    <div class="tableContainer" id="userLists">
+
+        <table>
+            <thead>
+                <tr>
+                    <th>S.N</th>
+                    <th> UserName</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>City</th>
+                    <th>Gender</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each user}}
+                <tr>
+                    <th scope="row">{{inc @index}}</th>
+                    <td>{{this.full_name}}</td>
+                    <td>{{this.email}}</td>
+                    <td>{{this.phone}}</td>
+                    <td>{{this.city}}</td>
+                    <td>{{this.gender}}</td>
+                    <td><a href="/backend/superAdmin/delete/{{this.id}}" class="btn btn-primary">Delete</a></td>
+
+                </tr>
+                {{/each}}
+            </tbody>
+
+        </table>
+    </div>

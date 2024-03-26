@@ -1,0 +1,95 @@
+<link rel="stylesheet" href="/static/css/companyAdmin.css">
+
+
+<body>
+
+    <div class="h1AndBars">
+        <span onclick="openNav()"><i class="fa-solid fa-bars"></i></span>
+        <h1>Welcome {{company.company_name}}</h1>
+    </div>
+    
+    
+{{#if addedJob}}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>{{addedJob}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+
+    <div id="sideNavBar" class="sidenav">
+        <a class="closebtn" onclick="closeNav()">&times;</a>
+        <a href="#" onclick="openAddJobForm()" id="open">Add Jobs</a>
+        <a href="#" onclick="toggleProfile()" id="openProfile">View Profile</a>
+        <a href="/backend/companyAdmin/job">Added Jobs</a>
+        <a href="/backend/companyAdmin/application">Applications</a>
+
+        <form action="/backend/companyAdmin/logout" method="GET">
+            <div class="logout">
+                <button class="logoutBtn">
+                    logout<i class="fa-solid fa-arrow-right-from-bracket"></i>
+                </button>
+            </div>
+
+        </form>
+
+
+    </div>
+
+
+    <div id="addJobForm" class="companyFormContainer">
+        <div class="jobContainer">
+            <form action="/backend/companyAdmin" method="post" enctype="multipart/form-data">
+                <span class="icon-close"><i onclick="closeAddJobForm()" id="close" class="fa-solid fa-x"></i></span>
+                <h1>Post Vacancy</h1>
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Select Image</label>
+                    <input class="form-control" name="image" type="file" id="formFile">
+                </div>
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Job Title</label>
+                    <input class="form-control" type="text" name="jobName" id="jobTitle" placeholder="Job Title">
+                </div>
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Salary</label>
+                    <input class="form-control" name="salary" type="number" placeholder="Enter Salary">
+                </div>
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Description</label>
+                    <input class="form-control" name="description" type="text" placeholder="Description">
+                </div>
+                <select class="form-select" aria-label="Default select example" name="jobType">
+                    <option hidden>Job Type</option>
+                    <option value="Part Time">Part Time</option>
+                    <option value="Full Time">Full Time</option>
+                    <option value="Remote">Remote</option>
+
+                </select>
+
+                <button class="btn btn-primary" type="submit">Post Job</button>
+
+            </form>
+        </div>
+    </div>
+
+
+
+    <div class="companyCard" id="companyCard">
+        <span class="icon-close"><i onclick="closeProfile()" id="close" class="fa-solid fa-x"></i></span>
+        <div class="companyDetails">
+            <h2><strong>{{company.company_name}}</strong></h2>
+            <p>Email: {{company.email}}</p>
+            <p>Phone: {{company.phone}}</p>
+            <p>PAN Number: {{company.pan_number}}</p>
+            <p>Location: {{company.location}}</p>
+            <p>Description: {{company.description}}</p>
+        </div>
+        <div class="updateDetails">
+            <button class="btn btn-primary"><a href="#">Update Profile</a></button>
+        </div>
+    </div>
+
+
+    <script src="/static/scripts/admin.js"></script>
+    <script src="/static/scripts/companyAdmin.js"></script>
+
+</body>

@@ -1,0 +1,73 @@
+<link rel="stylesheet" href="static/css/login.css">
+
+
+
+
+<body>
+
+ {{#if successMessage}}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>{{successMessage}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {{/if}}
+
+    <div class="wrapper" id="wrapper">
+
+        <span class="icon-close"><i onclick="btnCLose()" id="close" class="fa-solid fa-x"></i></span>
+
+        <div class="form-box login">
+         
+            {{#ifEq role 'user'}}
+            <form action="/login" method="post">
+               <h1>Login</h1>
+                {{/ifEq}}
+
+
+                {{#ifEq role 'company'}}
+                <link rel="stylesheet" href="/static/css/login.css">
+                <form action="/backend/company" method="post">
+                    <h1>Company Login</h1>
+                    {{/ifEq}}
+
+                        <div class="input-data">
+                            <input type="text" name="email" required><span class="icon"><i
+                                    class="fa-solid fa-envelope"></i></span>
+                            <div class="underline"></div>
+                            <label>Email</label>
+                        </div><br><br>
+                        <div class="input-data">
+                            <input type="password" name="password" id="password" required><span class="icon"><i id="eye"
+                                    class="fa-solid fa-eye" aria-hidden="true" onclick="togglEye()"></i></span>
+                            <div class="underline"></div>
+                            <label for="password">Password</label>
+                        </div>
+
+                        {{#if errors}}
+                        {{#each errors}}
+                        <div class="alert alert-danger" role="alert">
+                            {{this}}
+                        </div>
+                        {{/each}}
+                        {{/if}}
+
+                        <div class="remember-forget">
+                            <label><input type="checkbox">Remember me</label>
+                            <a href="##">Forget Password</a>
+                        </div>
+                        <div>
+                            <button type="submit" class="btn">Login</button>
+                        </div>
+                        <div class="login-register">
+                            <p>Don't have an account <a href="/signup" class="register-link">Register Now</a></p>
+                            <p>login as company? <a href="/backend/company">Login Now</a></p>
+                        </div>
+                   
+                 </form>
+        </div>
+
+    </div>
+
+    <script src="/static/scripts/form.js"></script>
+
+</body>

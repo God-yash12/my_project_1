@@ -1,0 +1,66 @@
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background-color: #f4f4f4;
+        padding: 20px;
+    }
+    h1 {
+        color: #333;
+        text-align: center;
+    }
+    ul {
+        list-style-type: lower-alpha;
+        padding: 0;
+    }
+    li {
+        background-color: #fff;
+        padding: 20px;
+        margin-bottom: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        display: flex; /* Use flexbox to align items */
+    }
+    .imageSection {
+        flex: 0 0 150px; /* Set width of image section */
+        margin-right: 20px; /* Add some margin between image and text */
+    }
+    .imageSection img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px;
+    }
+    .jobInfo {
+        flex: 1; /* Take remaining space */
+    }
+    .jobInfo strong {
+        font-weight: bold;
+    }
+    .jobInfo p {
+        margin: 0; /* Remove default margin for paragraphs */
+    }
+</style>
+
+<div class="appliedJobsPage">
+    <h1>Job Applied Status</h1>
+
+    {{#if appliedData}}
+        <ul>
+            {{#each appliedData}}
+                <li type="1">
+                    <div class="imageSection">
+                        <img src="/static/images/{{image}}" alt="no image">
+                    </div>
+                    <div class="jobInfo">
+                        <strong>Job Name:</strong> {{job_name}} <br>
+                        <strong>Salary:</strong> {{salary}} <br>
+                        <strong>Job Type:</strong> {{job_type}} <br>
+                        <strong>Description:</strong> {{description}} <br>
+                        <strong>Status</strong> {{status}}
+                    </div>
+                </li>
+            {{/each}}
+        </ul>
+    {{else}}
+        <p>No job application data found.</p>
+    {{/if}}
+</div>

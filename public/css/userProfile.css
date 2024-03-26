@@ -1,0 +1,217 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url('href="https://fonts.googleapis.com/css?family=Tangerine">'); 
+@import url('https://fonts.googleapis.com/css2?family=Almendra:ital,wght@0,400;0,700;1,400;1,700&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+
+
+body {
+    margin-top: 100px;
+    font-family: "Poppins", sans-serif;
+}
+
+
+.userProfile{
+    display: flex;
+}
+
+
+h1 {
+    text-align: center;
+    font-family: "Almendra", serif;
+    font-size: 50px;
+    text-shadow: 5px 10px 10px;
+}
+
+.userCard {
+    width: 20rem;
+    height: 30rem;
+    background-color: burlywood;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 20px;
+    border-radius: 10px;
+    box-shadow: 5px 10px 10px gray;
+    margin-bottom: 150px;
+    position: relative; /* Added */
+}
+
+.imageSection {
+    margin-top: 17px;
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+}
+
+.imageSection img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    overflow: hidden;
+}
+
+.userDetails {
+    color: rgb(19, 4, 4);
+    padding: 10px;
+    border-radius: 10px;
+    text-align: left;
+}
+
+.userDetails h2 {
+    text-align: center;
+    line-height: 1;
+}
+
+.userCard button a{
+    text-decoration: none;
+    color: whitesmoke;
+}
+
+
+.logout {
+    position: absolute; 
+    top: 100px;
+    right: 50px;
+    
+}
+
+.logout button a{
+    text-decoration: none;
+    color: white;
+}
+
+.logout button{
+    padding: 10px 15px;
+    color: whitesmoke;
+    background-color: rgba(59, 11, 11, 0.945);
+    border: none;
+    border-radius: 5px;
+}
+
+
+.logout button:hover,
+.logout button a:hover{
+    background-color: rgba(104, 176, 27, 0.741);
+    color: black;
+}
+
+
+.updateForm{
+    display: none;
+    margin-left: 100px;
+    margin-bottom: 100px;
+}
+
+.updateForm .custom-form h4{
+    text-align: center;
+    margin: 10px;
+    font-family: "poppins";
+}
+
+.custom-form {
+    width: 400px; 
+    height: 640px; 
+    margin: 0 auto;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.custom-form label {
+    font-weight: bold;
+}
+.custom-form .form-control {
+    margin-bottom: 15px;
+}
+.custom-form .btn-primary {
+    width: 100%;
+}
+
+.updateForm .custom-form .icon-close {
+    position: relative;
+    top: -30px;
+    left: 100%;
+    width: 35px;
+    height: 35px;
+    background: #44494c;
+    font-size: 1.5em;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 4px 5px 5px gray;
+  } 
+  
+
+
+
+.profileImage {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+}
+
+.profileImage input[type="file"] {
+    opacity: 0;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    cursor: pointer;
+}
+
+.profileImage label {
+    background-color: #275a7c;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.profileImage label:hover {
+    background-color: #2980b9;
+}
+
+button{
+    margin-bottom: 10px;
+}
+
+.resumeContainer {
+    cursor: pointer;
+    width: 300px;
+    height: 350px;
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+    overflow: hidden;
+    border-radius: 8px;
+    transition: width 0.3s, height 0.3s;
+    z-index: 999; /* Ensure it's above other content */
+}
+
+.resumeContainer img {
+    width: 90%;
+    height: 90%;
+    object-fit: cover;
+}
+
+.expanded{
+    width: 80vh; 
+    height: 80vh;
+    position: relative;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    z-index: 1000; 
+    overflow-y: auto;
+}

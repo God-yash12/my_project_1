@@ -1,0 +1,92 @@
+<link rel="stylesheet" href="/static/css/userProfile.css">
+
+
+
+<h1>Welcome {{user.full_name}}</h1>
+
+{{#if messages}}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>{{messages}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+
+
+{{#if failMessage}}
+<div class="alert alert-warning alert-dismissible fade show" role="alert">
+    <strong>{{failMessage}}</strong>
+    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+</div>
+{{/if}}
+
+<div class="userProfile">
+
+    <div class="userCard">
+        <div class="imageSection">
+            <img src="/static/images/{{user.image}}">
+        </div>
+        <div class="userDetails">
+            <h2><strong>{{user.full_name}}</strong></h2>
+            <p>Email: {{user.email}}</p>
+            <p>Phone: {{user.phone}}</p>
+            <p>Location: {{user.city}}</p>
+            <p>Gender: {{user.gender}}</p>
+        </div>
+        <div class="updateDetails">
+            <button class="btn btn-primary"><a href="/userProfile/updateForm/{{data.id}}">Update Profile</a></button>
+            <button class="btn btn-primary"><a href="/userProfile/appliedJobs">View Applied Jobs</a></button>
+        </div>
+    </div>
+
+    <div class="resumeContainer">
+        <label for="resume">Resume</label>
+        <img src="/static/images/{{user.resume}}" alt="Resume" onclick="expandResume(this)">
+    </div>
+
+
+
+
+
+
+    <form action="/userProfile/uploadResume" method="post" enctype="multipart/form-data">
+
+        <label for="resume">Insert Resume </label><br>
+        <input type="file" name="resume">
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+
+    </form>
+
+
+    <form action="/logout" method="GET">
+        <div class="logout">
+            <button class="logoutBtn">
+                logout
+            </button>
+        </div>
+
+    </form>
+
+
+<script>
+
+    document.addEventListener('DOMContentLoaded', function() {
+    const resumeContainers = document.querySelectorAll('.resumeContainer');
+
+    resumeContainers.forEach(function(container) {
+        const image = container.querySelector('img');
+        
+        container.addEventListener('click', function() {
+            if (!document.fullscreenElement) {
+                image.requestFullscreen().catch(err => {
+                    console.error('Error attempting to enable full-screen mode:', err);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        });
+    });
+});
+
+
+</script>

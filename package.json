@@ -1,0 +1,30 @@
+{
+  "name": "job_portal_website",
+  "version": "1.0.1",
+  "description": "Job portal website for Better World Employment Service",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": " git+https://github.com/God-yash12/job_portal.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "author": "Ganesh Thapa",
+  "license": "ISC",
+  "dependencies": {
+    "bcrypt": "^5.1.1",
+    "body-parser": "^1.20.2",
+    "connect-flash": "^0.1.1",
+    "cors": "^2.8.5",
+    "express": "^4.18.2",
+    "express-handlebars": "^7.1.2",
+    "express-mysql-session": "^3.0.0",
+    "express-session": "^1.18.0",
+    "express-validator": "^7.0.1",
+    "multer": "^1.4.5-lts.1",
+    "mysql": "^2.18.1"
+  }
+}
