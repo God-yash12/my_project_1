@@ -1,6 +1,10 @@
 const connection = require("../../connection/dbconnection");
 
-function addJobs(data, filename, id) {
+
+
+class companyAdmin{
+
+static  addJobs(data, filename, id) {
   const { jobName, salary, description, jobType } = data;
 
   return new Promise((resolve, reject) => {
@@ -17,7 +21,7 @@ function addJobs(data, filename, id) {
   });
 }
 
-function getCompanyById(id) {
+static getCompanyById(id) {
   return new Promise((resolve, reject) => {
     connection.query(
       "SELECT company_name, email, phone, pan_number, description, location FROM company_table WHERE id = ?",
@@ -34,7 +38,7 @@ function getCompanyById(id) {
 
 
 // Delete a particular job added by a company
-function deleteJobByCompany(id, company_id) {
+static deleteJobByCompany(id, company_id) {
   return new Promise((resolve, reject) => {
     connection.query(
       "DELETE FROM jobs WHERE jobs.id = ? AND jobs.company_id = ?",
@@ -48,11 +52,13 @@ function deleteJobByCompany(id, company_id) {
     );
   });
 }
+}
 
 
 
 module.exports = {
-  addJobs,
-  getCompanyById,
-  deleteJobByCompany,
+  // addJobs,
+  // getCompanyById,
+  // deleteJobByCompany,
+  companyAdmin
 };

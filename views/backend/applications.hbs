@@ -79,6 +79,12 @@
 
 <h1>Applied Job Applications</h1>
 
+ {{#if changesStatus}}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>{{changesStatus}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {{/if}}
 
 <ul class="jobApplications">
     {{#each appliedJobs}}

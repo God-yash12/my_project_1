@@ -5,7 +5,7 @@ const applyModel = require("../../Model/apply_model");
 const companyAdminController = async (req, res) => {
   const auth = req.session.auth;
   if (auth) {
-    const company = await companyModel.getCompanyById(auth.id);
+    const company = await companyModel.companyAdmin.getCompanyById(auth.id);
     return res.render("backend/companyAdmin", {
       title: "Admin page",
       favicon: "/static/images/logo.jpeg",
@@ -28,7 +28,7 @@ const addJobsByCompany = async (req, res) => {
 
     const fileName = req.file.filename;
     const body = req.body;
-    const data = await companyModel.addJobs(body, fileName, companyId);
+    const data = await companyModel.companyAdmin.addJobs(body, fileName, companyId);
     if (data) {
       req.flash("addedJob", "Job posted successfully");
       return res.redirect("/backend/companyAdmin");
@@ -60,6 +60,7 @@ const renderJobApplication = async (req, res) => {
         favicon: "/static/images/logo.jpeg",
         layout: "backend",
         appliedJobs: appliedData,
+        changesStatus: req.flash("changesStatus")
       });
     } else {
       return res.redirect("/backend/companyAdmin");
@@ -94,17 +95,15 @@ const deleteJobByCompany = async (req, res) => {
 
 
 async function changeStatus(req, res) {
-  const applicationId = req.body.applicationId; // Retrieve application ID from the request body
+  const applicationId = req.body.applicationId; 
   const newStatus = req.body.status;
-  console.log(applicationId);
-  console.log(newStatus);
-
   try {
       const data = await applyModel.changeStatus(applicationId, newStatus);
       console.log(data);
       if (data) {
-          res.status(200).json({ message: "Status updated successfully." });
-          // return res.redirect("/backend/companyAdmin/application")
+          // res.status(200).json({ message: "Status updated successfully." });
+          req.flash("changesStatus", "user ststus is updated")
+          return res.redirect("/backend/companyAdmin/application")
       }
   } catch (error) {
       console.log(error);
