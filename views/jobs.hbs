@@ -6,7 +6,7 @@
      <form action="/jobs" method="GET" class="search-container">
         <input type="search" class="search" name="search" placeholder="Search Jobs" value="{{searchTerm}}">
         <button type="submit"><i class="fa-solid fa-magnifying-glass"></i></button>
-    </form>
+    </form>  
 
     {{#if message}}
     <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -55,9 +55,10 @@
             </div>
             {{/each}}
         </div>
-
+ {{else}}
+        <h2>Searched Job Not Available</h2>
         {{/each}}
-
+       
 
     </div>
 

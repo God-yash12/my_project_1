@@ -43,7 +43,44 @@ function  getAdminData() {
     });
   }
 
-
+  function getTotalUsers() {
+    return new Promise((resolve, reject) => {
+      const sql = `SELECT COUNT(*) AS totalUsers FROM user_table`;
+      connection.query(sql, (error, results) => {
+        if (error) {
+          return reject(error);
+        }
+        return resolve(results[0].totalUsers);
+      });
+    });
+  }
+  
+  // Function to get total number of companies
+  function getTotalCompanies() {
+    return new Promise((resolve, reject) => {
+      const sql = `SELECT COUNT(*) AS totalCompanies FROM company_table`;
+      connection.query(sql, (error, results) => {
+        if (error) {
+          return reject(error);
+        }
+        return resolve(results[0].totalCompanies);
+      });
+    });
+  }
+  
+  // Function to get total number of posted jobs
+  function getTotalPostedJobs() {
+    return new Promise((resolve, reject) => {
+      const sql = `SELECT COUNT(*) AS totalJobs FROM jobs`;
+      connection.query(sql, (error, results) => {
+        if (error) {
+          return reject(error);
+        }
+        return resolve(results[0].totalJobs);
+      });
+    });
+  }
+  
 
   function getCompanyData(){
     return new Promise((resolve, reject) => {
@@ -64,5 +101,8 @@ module.exports = {
     addCompany,
     getAdminById,
     getAdminData,
-    getCompanyData
+    getCompanyData,
+    getTotalUsers,
+    getTotalCompanies,
+    getTotalPostedJobs
 }

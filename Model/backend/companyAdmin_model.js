@@ -38,11 +38,11 @@ static getCompanyById(id) {
 
 
 // Delete a particular job added by a company
-static deleteJobByCompany(id, company_id) {
+static deleteJobByCompany(jobId, companyId) {
   return new Promise((resolve, reject) => {
     connection.query(
-      "DELETE FROM jobs WHERE jobs.id = ? AND jobs.company_id = ?",
-      [id, company_id],
+      "DELETE FROM jobs WHERE id = ? AND company_id = ?",
+      [jobId, companyId],
       (error, results) => {
         if (error) {
           return reject(error);
@@ -52,6 +52,7 @@ static deleteJobByCompany(id, company_id) {
     );
   });
 }
+
 }
 
 

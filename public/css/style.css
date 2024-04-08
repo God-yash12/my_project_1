@@ -205,7 +205,7 @@ footer {
 }
 
 .footerContainer {
-    padding: 60px;
+    padding: 2  0px;
 }
 
 .footerContainer li {
@@ -223,7 +223,7 @@ footer {
 
 .footerContainer li a i {
     font-size: 25px;
-    margin-left: 20px;
+    /* margin-left: 10px; */
     margin-right: 25px;
     margin-top: 15px;
     color: rgb(255, 255, 255);
@@ -236,7 +236,8 @@ footer .map {
     margin-right: 30px;
 }
 
-footer .map img {
-    height: 96%;
-    width: 96%;
+footer .map iframe {
+    height: 100%;
+    width: 100%;
+    padding: 10px;
 }

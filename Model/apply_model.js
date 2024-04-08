@@ -92,13 +92,43 @@ function changeStatus(id, newStatus) {
 }
 
 
+function getAllAppliedStatusForAdmin() {
+  return new Promise((resolve, reject) => {
+    const sql = `
+      SELECT
+        apply_job.*,
+        jobs.job_name,
+        user_table.full_name,
+        company_table.company_name,
+        apply_job.status
+      FROM
+        apply_job
+      INNER JOIN
+        jobs ON apply_job.job_id = jobs.id
+      INNER JOIN
+        user_table ON apply_job.user_id = user_table.id
+      INNER JOIN
+        company_table ON apply_job.company_id = company_table.id
+      ORDER BY
+        user_table.full_name;
+    `;
+    connection.query(sql, (error, results) => {
+      if (error) {
+        return reject(error);
+      }
+      return resolve(results);
+    });
+  });
+}
+
 
 
 module.exports = {
     userApplyData,
    getAppliedJobsByCompany,
    getAppliedJobsByUser,
-   changeStatus
+   changeStatus,
+   getAllAppliedStatusForAdmin
 }
 
 

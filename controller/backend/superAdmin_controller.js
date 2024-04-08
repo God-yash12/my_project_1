@@ -1,27 +1,43 @@
 const signupModel = require("../../Model/signup_model");
 const superAdminModel = require("../../Model/backend/superAdmin_model");
 const { validationResult } = require("express-validator");
+const appliedModel = require("../../Model/apply_model")
 
 const superAdminController = async (req, res) => {
-  const errors = req.flash("error");
+  try {
+    const errors = req.flash("error");
+    const totalUsers = await superAdminModel.getTotalUsers()
+    const totalCompanies = await superAdminModel.getTotalCompanies()
+    const totalPostedJobs = await superAdminModel.getTotalPostedJobs()
   res.render("backend/superAdmin", {
     title: "admin page",
     favicon: "/static/images/logo.jpeg",
     layout: "backend",
     errors: errors,
-    addedCompany: req.flash("addedCompany")
+    addedCompany: req.flash("addedCompany"),
+    totalUsers: totalUsers,
+    totalCompanies: totalCompanies,
+    totalPostedJobs: totalPostedJobs
   });
+  } catch (error) {
+    console.log(error)
+  }
 };
 
 //user render into table
 const getUserList = async (req, res) => {
   try {
+    
+    const appliedStatus = await appliedModel.getAllAppliedStatusForAdmin()
+   
     const data = await signupModel.getUserData();
     return res.render("backend/userdata", {
       title: "User Data",
       favicon: "/static/images/logo.jpeg",
       layout: "backend",
       user: data,
+      status: appliedStatus
+      
     });
   } catch (error) {
     console.log(error);

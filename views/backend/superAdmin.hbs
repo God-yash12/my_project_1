@@ -42,30 +42,33 @@
 </div>
 {{/if}}
 
-    <section class="dashboard">
-        <h2>Dashboard</h2>
-        <div class="monthly-earning">
-            <p>Earnings (monthly)</p>
+<br>
+    <h2>Dashboard</h2>
+    <hr>
+<section class="dashboard">
+    <div class="dashboard-item animated">
+        <div class="dashboard-icon">
+            <img src="/static/images/users.png" alt="User Icon">
         </div>
-        <div class="annual-earning">
-            <p>Earnings (annually)</p>
+        <p class="counter"></p>
+<p>{{ totalUsers }}</p>
+        <p>Total Users</p>
+    </div>
+    <div class="dashboard-item animated">
+        <div class="dashboard-icon">
+            <img src="/static/images/company.webp" alt="Company Icon">
         </div>
-        <div class="pending-request">
-            <p>Pending requests</p>
+        <p class="counter" data-target="{{ totalCompanies }}"></p> <p>{{ totalCompanies }}</p>
+        <p>Total Companies</p>
+    </div>
+    <div class="dashboard-item animated">
+        <div class="dashboard-icon">
+            <img src="/static/images/job.png" alt="Job Icon">
         </div>
-        <div class="total-customer">
-            <p>Total Customer</p>
-        </div>
-
-
-    </section>
-
-
-
-
-
-
-
+        <p class="counter" data-target="{{ totalPostedJobs }}"></p><p>{{ totalPostedJobs }}</p>
+        <p>Total Posted Jobs</p>
+    </div>
+</section>
 
 
 

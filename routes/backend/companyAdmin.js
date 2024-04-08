@@ -13,8 +13,10 @@ companyAdminRoutes.post('/', upload.single('image'), controller.addJobsByCompany
 companyAdminRoutes.get("/logout", logoutController.logout)
 companyAdminRoutes.get('/job', jobController.jobOnCompanyDashboard)
 companyAdminRoutes.get('/application', controller.renderJobApplication)
-companyAdminRoutes.get('/delete/:id', controller.deleteJobByCompany)
 companyAdminRoutes.post("/changeStatus/:id", controller.changeStatus)
+companyAdminRoutes.get('/delete/:id', controller.deleteJobByCompany)
+
+
 
 
 

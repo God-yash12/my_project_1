@@ -70,26 +70,30 @@ const renderJobApplication = async (req, res) => {
   }
 };
 
-const deleteJobByCompany = async (req, res) => {
-  try {
-    const id = req.session.auth.id;
-    console.log(id);
-    if (!id) {
-      return res.status(400).send("Job ID  is missing in session");
-    }
-    const deleteJob = await companyModel.deleteJobByCompany(id);
-    if (deleteJob) {
-      req.flash("deleteJob", "Job Deleted Successfully");
-      return res.redirect("/backend/companyAdmin/job");
-    } else {
-      req.flash("cannot deleted");
-      return res.redirect("/backend/companyAdmin/job");
-    }
-  } catch (error) {
-    console.log(error);
-    return res.status(500).send("Internal Server Error");
-  }
-};
+
+
+
+
+// const deleteJobByCompany = async (req, res) => {
+//   try {
+//     const id = req.session.auth.id;
+//     console.log(id);
+//     if (!id) {
+//       return res.status(400).send("Job ID  is missing in session");
+//     }
+//     const deleteJob = await companyModel.companyAdmin.deleteJobByCompany(id);
+//     if (deleteJob) {
+//       req.flash("deleteJob", "Job Deleted Successfully");
+//       return res.redirect("/backend/companyAdmin/job");
+//     } else {
+//       // req.flash("cannot deleted");
+//       return res.redirect("/backend/companyAdmin/job");
+//     }
+//   } catch (error) {
+//     console.log(error);
+//     return res.status(500).send("Internal Server Error");
+//   }
+// };
 
 //job accept or reject
 
@@ -110,6 +114,33 @@ async function changeStatus(req, res) {
       res.status(500).json({ error: "Failed to update status." });
   }
 }
+
+
+
+const deleteJobByCompany = async (req, res) => {
+  try {
+    const jobId = req.params.id; 
+    const companyId = req.session.auth.id; 
+
+    if (!jobId || !companyId) {
+      return res.status(400).send("Job ID or Company ID is missing");
+    }
+
+    const deleteJob = await companyModel.companyAdmin.deleteJobByCompany(jobId, companyId);
+
+    if (deleteJob) {
+      req.flash("success", "Job Deleted Successfully");
+    } else {
+      req.flash("error", "Failed to delete job");
+    }
+    
+    return res.redirect("/backend/companyAdmin/job");
+  } catch (error) {
+    console.log(error);
+    return res.status(500).send("Internal Server Error");
+  }
+};
+
 
 
 

@@ -136,7 +136,7 @@ const renderJobs = async (req, res) => {
       currentPages: offset / 10,
       totalPageCount: totalPageCount,
       searchTerm: searchTerm, 
-      searchMessage: req.flash("searchMessage")
+      
     });
   } catch (error) {
     console.log(error);
