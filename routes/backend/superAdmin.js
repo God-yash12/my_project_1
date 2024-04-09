@@ -12,6 +12,7 @@ adminRoutes.get('/delete/:id', controller.deleteUserById)
 // adminRoutes.get("/addCompany", controller.getCompanyForm)
 adminRoutes.get('/addCompany', controller.addCompany)
 adminRoutes.post('/', controller.addCompanyController)
+adminRoutes.get("/jobsInfo", controller.getJobsInfo)
 
 
 

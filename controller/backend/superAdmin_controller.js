@@ -2,6 +2,7 @@ const signupModel = require("../../Model/signup_model");
 const superAdminModel = require("../../Model/backend/superAdmin_model");
 const { validationResult } = require("express-validator");
 const appliedModel = require("../../Model/apply_model")
+const jobModel = require("../../Model/job_model")
 
 const superAdminController = async (req, res) => {
   try {
@@ -111,7 +112,23 @@ const getCompanyList = async (req, res) => {
 };
 
 
+//     jobs Informations by Admin
 
+const getJobsInfo = async (req, res)=>{
+  try {
+    const data = await jobModel.getJobsByCompanyName();
+    
+    return res.render("backend/jobsInfo", {
+      title: "Job Data",
+      favicon: "/static/images/logo.jpeg",
+      layout: "backend",
+      jobsinfo: data
+    });
+  } catch (error) {
+    console.error("Error fetching company list:", error);
+    return res.status(500).send("Internal Server Error");
+  }
+}
 
 
 module.exports = {
@@ -121,5 +138,6 @@ module.exports = {
   addCompanyController,
   getCompanyList,
   addCompany,
+  getJobsInfo,
   // getCompanyForm
 };
