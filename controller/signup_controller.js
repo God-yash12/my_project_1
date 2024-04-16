@@ -3,6 +3,7 @@ const { validationResult } = require('express-validator');
 const { user } = require("../connection/dbConfig");
 const removeFile = require("../middleware/removeFile");
 const bcrypt = require('bcrypt');
+const mailService = require("../nodemailer/sendMail")
 
 
 const renderSignupForm = (req, res) => {
@@ -35,9 +36,11 @@ const signUpUser = async (req, res)=>{
         // const hashPassword = await bcrypt.hash(req.body.password, saltRound)
         const fileName = req.file.filename;
         const body = req.body;
+        const email = req.body.email;
         // const body = {...req.body, password: hashPassword};
         const data = await signupModel.insertUser(body, fileName);
         if(data){
+          await mailService.sendMailToUser(email)
           req.session.auth = {
             id: data.id,
             role: "user"
@@ -46,6 +49,7 @@ const signUpUser = async (req, res)=>{
           return res.redirect("/login")
         }else{
           removeFile(req.file.filename)
+          return res.redirect("/signup")
         }
       }
 
