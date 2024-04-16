@@ -53,6 +53,71 @@ static deleteJobByCompany(jobId, companyId) {
   });
 }
 
+
+
+static getImageToDelete(id){
+  return new Promise((resolve, reject) => {
+    connection.query("SELECT image FROM jobs WHERE id = ?", [id], (error, results) => {
+      if (error) {
+        return reject(error);
+      }
+      return resolve(results);
+    });
+  });
+
+}
+
+
+// job update 
+
+static getJobDataById = (id) => {
+  return new Promise((resolve, reject) => {
+    connection.query("SELECT * FROM jobs WHERE id = ?", [id], (error, results) => {
+      if (error) {
+        return reject(error);
+      }
+      return resolve(results);
+    });
+  });
+}
+
+
+
+static updateJobWithImage = (data, filename, id) => {
+  const { jobName, salary, description } = data;
+  return new Promise((resolve, reject) => {
+    connection.query(
+      "UPDATE jobs SET image = ?, job_name = ?, salary = ?, description = ? WHERE id = ?",
+      [filename, jobName, salary, description, id],
+      (error, results) => {
+        if (error) {
+          return reject(error);
+        }
+        return resolve(results);
+      }
+    );
+  });
+}
+
+
+static updateJobWithoutImage = (date, id) =>{
+  const { jobName, salary, description} = data;
+  return new Promise((resolve, reject) => {
+    connection.query(
+      "UPDATE jobs SET job_name = ?, salary = ?, description = ? WHERE id = ?",
+      [jobName, salary, description, id],
+      (error, results) => {
+        if (error) {
+          return reject(error);
+        }
+        return resolve(results);
+      }
+    );
+  });
+}
+
+
+
 }
 
 

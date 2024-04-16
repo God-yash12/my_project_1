@@ -13,6 +13,7 @@ const jobOnCompanyDashboard = async (req, res) => {
       favicon: "/static/images/logo.jpeg",
       layout: "backend",
       jobList: companyJobList,
+      deleteJob: req.flash("deleteJob"),
       // jobGroup: groupJobList
     });
   } catch (error) {

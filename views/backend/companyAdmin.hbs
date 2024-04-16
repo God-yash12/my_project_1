@@ -3,18 +3,26 @@
 
 <body>
 
+    {{!-- <div class="bgvideo">
+        <video autoplay muted loop id="myVideo">
+            <source src="/static/video/bgvideo.mp4" type="video/mp4">
+        </video>
+    </div>
+ --}}
+
+
     <div class="h1AndBars">
         <span onclick="openNav()"><i class="fa-solid fa-bars"></i></span>
         <h1>Welcome {{company.company_name}}</h1>
     </div>
-    
-    
-{{#if addedJob}}
-<div class="alert alert-warning alert-dismissible fade show" role="alert">
-    <strong>{{addedJob}}</strong>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-</div>
-{{/if}}
+
+
+    {{#if addedJob}}
+    <div class="alert alert-warning alert-dismissible fade show" role="alert">
+        <strong>{{addedJob}}</strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+    {{/if}}
 
     <div id="sideNavBar" class="sidenav">
         <a class="closebtn" onclick="closeNav()">&times;</a>

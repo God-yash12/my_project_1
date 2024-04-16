@@ -1,0 +1,107 @@
+
+
+<style>
+    /* Style for the form container */
+    .companyFormContainer {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background-color: white;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 1000;
+    }
+
+    /* Style for the job container */
+    .jobContainer {
+        max-width: 500px;
+        margin: 0 auto;
+    }
+
+    /* Style for the form elements */
+    .form-label {
+        font-weight: bold;
+    }
+
+    .form-control {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 10px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+
+    .btn-primary {
+        background-color: #007bff;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+
+    /* Animation for showing the form */
+    .companyFormContainer.show {
+        display: block;
+        animation: fadeIn 0.5s ease-in-out forwards;
+    }
+    button{
+        margin-top: 10px;
+        margin-left: 90px;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+            transform: translate(-50%, -60%);
+        }
+        to {
+            opacity: 1;
+            transform: translate(-50%, -50%);
+        }
+    }
+</style>
+
+
+
+    <div id="addJobForm" class="companyFormContainer">
+        <div class="jobContainer">
+            <form action="/backend/companyAdmin/update/{{jobData.id}}" method="post" enctype="multipart/form-data">
+
+                <h1>Update Vacancy</h1>
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Select Image</label>
+                    <input class="form-control" name="image" type="file" id="formFile">
+                    <span>
+                        <img src="/static/images/{{jobData.image}}" alt="no image" style="width: 80px; height: 80px;">
+                    </span>
+                </div>
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Job Title</label>
+                    <input class="form-control" type="text" name="jobName" id="jobTitle" placeholder="Job Title" value="{{jobData.job_name}}">
+                </div>
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Salary</label>
+                    <input class="form-control" name="salary" type="number" placeholder="Enter Salary" value="{{jobData.salary}}">
+                </div>
+                <div class="mb-3">
+                    <label for="formFile" class="form-label">Description</label>
+                    <input class="form-control" name="description" type="text" placeholder="Description" value="{{jobData.description}}">
+                </div>
+                <select class="form-select" aria-label="Default select example" name="jobType">
+                    <option hidden>Job Type</option>
+                    <option value="Part Time">Part Time</option>
+                    <option value="Full Time">Full Time</option>
+                    <option value="Remote">Remote</option>
+
+                </select>
+
+                <button class="btn btn-primary" type="submit">Update Job</button>
+
+            </form>
+        </div>
+    </div>
+

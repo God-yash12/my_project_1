@@ -15,6 +15,8 @@ companyAdminRoutes.get('/job', jobController.jobOnCompanyDashboard)
 companyAdminRoutes.get('/application', controller.renderJobApplication)
 companyAdminRoutes.post("/changeStatus/:id", controller.changeStatus)
 companyAdminRoutes.get('/delete/:id', controller.deleteJobByCompany)
+companyAdminRoutes.get('/update/:id', controller.getJobUpdateForm)
+companyAdminRoutes.post('/update/:id', upload.single('image'), controller.updateJobsByCompany)
 
 
 

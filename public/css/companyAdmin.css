@@ -3,6 +3,11 @@
 
 body {
   font-family: "poppins";
+  background-image: url("/static/images/bgimage.jpg");
+  background-position: top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* filter: blur(5px); */
 }
 
 
