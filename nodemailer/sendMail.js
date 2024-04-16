@@ -44,11 +44,11 @@ module.exports = {
       Best regards,<br> 
       Better World Employment Services <br> 
       </p>`,
-    //   attachments: {
-    //     filename: "nodemailer.jpg",
-    //     path: path.join(__dirname, "public", "images", "nodemailer.jpg"),
-    //     contentType: "image/jpeg",
-    //   },
+      attachments: {
+        filename: "logo.jpeg",
+        path: path.join(__dirname, "logo.jpeg"),
+        contentType: "image/jpeg",
+      },
     };
 
     try {
